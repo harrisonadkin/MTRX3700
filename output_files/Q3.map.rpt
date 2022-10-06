@@ -1,0 +1,1551 @@
+Analysis & Synthesis report for Q3
+Thu Oct 06 23:46:40 2022
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Source assignments for img_data:img_data_inst|altsyncram:altsyncram_component|altsyncram_t7c1:auto_generated
+ 13. Source assignments for img_index:img_index_inst|altsyncram:altsyncram_component|altsyncram_h8c1:auto_generated
+ 14. Source assignments for filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated
+ 15. Parameter Settings for User Entity Instance: VGA_PLL:p1|altpll:altpll_component
+ 16. Parameter Settings for User Entity Instance: img_data:img_data_inst
+ 17. Parameter Settings for User Entity Instance: img_data:img_data_inst|altsyncram:altsyncram_component
+ 18. Parameter Settings for User Entity Instance: img_index:img_index_inst|altsyncram:altsyncram_component
+ 19. Parameter Settings for User Entity Instance: filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component
+ 20. Parameter Settings for User Entity Instance: vga_controller:vga_ins|video_sync_generator:LTM_ins
+ 21. altpll Parameter Settings by Entity Instance
+ 22. altsyncram Parameter Settings by Entity Instance
+ 23. Port Connectivity Checks: "vga_controller:vga_ins"
+ 24. Port Connectivity Checks: "filter:f0|ram_2_port:my_fram"
+ 25. Port Connectivity Checks: "VGA_PLL:p1"
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
+ 29. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Oct 06 23:46:40 2022       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; Q3                                          ;
+; Top-level Entity Name              ; Q3                                          ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 234                                         ;
+;     Total combinational functions  ; 227                                         ;
+;     Dedicated logic registers      ; 113                                         ;
+; Total registers                    ; 113                                         ;
+; Total pins                         ; 53                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 620,544                                     ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 1                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; Q3                 ; Q3                 ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                               ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; video_sync_generator.v           ; yes             ; User Verilog HDL File                  ; C:/Users/HADK2100/Downloads/Q3_template/video_sync_generator.v               ;         ;
+; vga_controller.v                 ; yes             ; User Verilog HDL File                  ; C:/Users/HADK2100/Downloads/Q3_template/vga_controller.v                     ;         ;
+; Reset_Delay.v                    ; yes             ; User Verilog HDL File                  ; C:/Users/HADK2100/Downloads/Q3_template/Reset_Delay.v                        ;         ;
+; img_index.v                      ; yes             ; User Wizard-Generated File             ; C:/Users/HADK2100/Downloads/Q3_template/img_index.v                          ;         ;
+; img_data.v                       ; yes             ; User Wizard-Generated File             ; C:/Users/HADK2100/Downloads/Q3_template/img_data.v                           ;         ;
+; filter.v                         ; yes             ; User Verilog HDL File                  ; C:/Users/HADK2100/Downloads/Q3_template/filter.v                             ;         ;
+; Q3.v                             ; yes             ; User Verilog HDL File                  ; C:/Users/HADK2100/Downloads/Q3_template/Q3.v                                 ;         ;
+; VGA_PLL.v                        ; yes             ; User Wizard-Generated File             ; C:/Users/HADK2100/Downloads/Q3_template/VGA_PLL.v                            ;         ;
+; ram_2_port.v                     ; yes             ; User Wizard-Generated File             ; C:/Users/HADK2100/Downloads/Q3_template/ram_2_port.v                         ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altpll.tdf            ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc        ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
+; db/vga_pll_altpll.v              ; yes             ; Auto-Generated Megafunction            ; C:/Users/HADK2100/Downloads/Q3_template/db/vga_pll_altpll.v                  ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_t7c1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_t7c1.tdf               ;         ;
+; img_data.mif                     ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/HADK2100/Downloads/Q3_template/img_data.mif                         ;         ;
+; db/decode_u9a.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/HADK2100/Downloads/Q3_template/db/decode_u9a.tdf                    ;         ;
+; db/mux_lob.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/HADK2100/Downloads/Q3_template/db/mux_lob.tdf                       ;         ;
+; db/altsyncram_h8c1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_h8c1.tdf               ;         ;
+; img_index.mif                    ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/HADK2100/Downloads/Q3_template/img_index.mif                        ;         ;
+; db/altsyncram_jon1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf               ;         ;
+; db/decode_5ua.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/HADK2100/Downloads/Q3_template/db/decode_5ua.tdf                    ;         ;
+; db/mux_3qb.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/HADK2100/Downloads/Q3_template/db/mux_3qb.tdf                       ;         ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                                     ;
++---------------------------------------------+-----------------------------------------------------------------------------------+
+; Resource                                    ; Usage                                                                             ;
++---------------------------------------------+-----------------------------------------------------------------------------------+
+; Estimated Total logic elements              ; 234                                                                               ;
+;                                             ;                                                                                   ;
+; Total combinational functions               ; 227                                                                               ;
+; Logic element usage by number of LUT inputs ;                                                                                   ;
+;     -- 4 input functions                    ; 94                                                                                ;
+;     -- 3 input functions                    ; 48                                                                                ;
+;     -- <=2 input functions                  ; 85                                                                                ;
+;                                             ;                                                                                   ;
+; Logic elements by mode                      ;                                                                                   ;
+;     -- normal mode                          ; 174                                                                               ;
+;     -- arithmetic mode                      ; 53                                                                                ;
+;                                             ;                                                                                   ;
+; Total registers                             ; 113                                                                               ;
+;     -- Dedicated logic registers            ; 113                                                                               ;
+;     -- I/O registers                        ; 0                                                                                 ;
+;                                             ;                                                                                   ;
+; I/O pins                                    ; 53                                                                                ;
+; Total memory bits                           ; 620544                                                                            ;
+;                                             ;                                                                                   ;
+; Embedded Multiplier 9-bit elements          ; 0                                                                                 ;
+;                                             ;                                                                                   ;
+; Total PLLs                                  ; 1                                                                                 ;
+;     -- PLLs                                 ; 1                                                                                 ;
+;                                             ;                                                                                   ;
+; Maximum fan-out node                        ; VGA_PLL:p1|altpll:altpll_component|VGA_PLL_altpll:auto_generated|wire_pll1_clk[0] ;
+; Maximum fan-out                             ; 198                                                                               ;
+; Total fan-out                               ; 2577                                                                              ;
+; Average fan-out                             ; 4.68                                                                              ;
++---------------------------------------------+-----------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                           ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                              ; Entity Name          ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; |Q3                                       ; 227 (24)            ; 113 (0)                   ; 620544      ; 0            ; 0       ; 0         ; 53   ; 0            ; |Q3                                                                                                              ; Q3                   ; work         ;
+;    |Reset_Delay:r0|                       ; 27 (27)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Q3|Reset_Delay:r0                                                                                               ; Reset_Delay          ; work         ;
+;    |VGA_PLL:p1|                           ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Q3|VGA_PLL:p1                                                                                                   ; VGA_PLL              ; work         ;
+;       |altpll:altpll_component|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Q3|VGA_PLL:p1|altpll:altpll_component                                                                           ; altpll               ; work         ;
+;          |VGA_PLL_altpll:auto_generated|  ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Q3|VGA_PLL:p1|altpll:altpll_component|VGA_PLL_altpll:auto_generated                                             ; VGA_PLL_altpll       ; work         ;
+;    |img_data:img_data_inst|               ; 70 (0)              ; 4 (0)                     ; 614400      ; 0            ; 0       ; 0         ; 0    ; 0            ; |Q3|img_data:img_data_inst                                                                                       ; img_data             ; work         ;
+;       |altsyncram:altsyncram_component|   ; 70 (0)              ; 4 (0)                     ; 614400      ; 0            ; 0       ; 0         ; 0    ; 0            ; |Q3|img_data:img_data_inst|altsyncram:altsyncram_component                                                       ; altsyncram           ; work         ;
+;          |altsyncram_t7c1:auto_generated| ; 70 (0)              ; 4 (4)                     ; 614400      ; 0            ; 0       ; 0         ; 0    ; 0            ; |Q3|img_data:img_data_inst|altsyncram:altsyncram_component|altsyncram_t7c1:auto_generated                        ; altsyncram_t7c1      ; work         ;
+;             |decode_u9a:rden_decode|      ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Q3|img_data:img_data_inst|altsyncram:altsyncram_component|altsyncram_t7c1:auto_generated|decode_u9a:rden_decode ; decode_u9a           ; work         ;
+;             |mux_lob:mux2|                ; 60 (60)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Q3|img_data:img_data_inst|altsyncram:altsyncram_component|altsyncram_t7c1:auto_generated|mux_lob:mux2           ; mux_lob              ; work         ;
+;    |img_index:img_index_inst|             ; 0 (0)               ; 0 (0)                     ; 6144        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Q3|img_index:img_index_inst                                                                                     ; img_index            ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 6144        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Q3|img_index:img_index_inst|altsyncram:altsyncram_component                                                     ; altsyncram           ; work         ;
+;          |altsyncram_h8c1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 6144        ; 0            ; 0       ; 0         ; 0    ; 0            ; |Q3|img_index:img_index_inst|altsyncram:altsyncram_component|altsyncram_h8c1:auto_generated                      ; altsyncram_h8c1      ; work         ;
+;    |vga_controller:vga_ins|               ; 106 (62)            ; 88 (64)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Q3|vga_controller:vga_ins                                                                                       ; vga_controller       ; work         ;
+;       |video_sync_generator:LTM_ins|      ; 44 (44)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Q3|vga_controller:vga_ins|video_sync_generator:LTM_ins                                                          ; video_sync_generator ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                        ;
++----------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+-----------------+
+; Name                                                                                               ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF             ;
++----------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+-----------------+
+; img_data:img_data_inst|altsyncram:altsyncram_component|altsyncram_t7c1:auto_generated|ALTSYNCRAM   ; M9K  ; ROM  ; 76800        ; 8            ; --           ; --           ; 614400 ; ./img_data.mif  ;
+; img_index:img_index_inst|altsyncram:altsyncram_component|altsyncram_h8c1:auto_generated|ALTSYNCRAM ; M9K  ; ROM  ; 256          ; 24           ; --           ; --           ; 6144   ; ./img_index.mif ;
++----------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                              ;
++--------+--------------+---------+--------------+--------------+----------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                  ; IP Include File ;
++--------+--------------+---------+--------------+--------------+----------------------------------+-----------------+
+; Altera ; RAM: 2-PORT  ; 18.1    ; N/A          ; N/A          ; |Q3|filter:f0|ram_2_port:my_fram ; ram_2_port.v    ;
+; Altera ; ALTPLL       ; 18.1    ; N/A          ; N/A          ; |Q3|VGA_PLL:p1                   ; VGA_PLL.v       ;
++--------+--------------+---------+--------------+--------------+----------------------------------+-----------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 113   ;
+; Number of registers using Synchronous Clear  ; 17    ;
+; Number of registers using Synchronous Load   ; 17    ;
+; Number of registers using Asynchronous Clear ; 58    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 64    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; 3:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |Q3|vga_controller:vga_ins|last_ADDR_v[0] ;
+; 5:1                ; 17 bits   ; 51 LEs        ; 34 LEs               ; 17 LEs                 ; Yes        ; |Q3|vga_controller:vga_ins|ADDR[8]        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Source assignments for img_data:img_data_inst|altsyncram:altsyncram_component|altsyncram_t7c1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                             ;
++---------------------------------+--------------------+------+------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                              ;
++---------------------------------+--------------------+------+------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Source assignments for img_index:img_index_inst|altsyncram:altsyncram_component|altsyncram_h8c1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                               ;
++---------------------------------+--------------------+------+--------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                ;
++---------------------------------+--------------------+------+--------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Source assignments for filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                   ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                    ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: VGA_PLL:p1|altpll:altpll_component ;
++-------------------------------+---------------------------+---------------------+
+; Parameter Name                ; Value                     ; Type                ;
++-------------------------------+---------------------------+---------------------+
+; OPERATION_MODE                ; NORMAL                    ; Untyped             ;
+; PLL_TYPE                      ; AUTO                      ; Untyped             ;
+; LPM_HINT                      ; CBX_MODULE_PREFIX=VGA_PLL ; Untyped             ;
+; QUALIFY_CONF_DONE             ; OFF                       ; Untyped             ;
+; COMPENSATE_CLOCK              ; CLK0                      ; Untyped             ;
+; SCAN_CHAIN                    ; LONG                      ; Untyped             ;
+; PRIMARY_CLOCK                 ; INCLK0                    ; Untyped             ;
+; INCLK0_INPUT_FREQUENCY        ; 20000                     ; Signed Integer      ;
+; INCLK1_INPUT_FREQUENCY        ; 0                         ; Untyped             ;
+; GATE_LOCK_SIGNAL              ; NO                        ; Untyped             ;
+; GATE_LOCK_COUNTER             ; 0                         ; Untyped             ;
+; LOCK_HIGH                     ; 1                         ; Untyped             ;
+; LOCK_LOW                      ; 1                         ; Untyped             ;
+; VALID_LOCK_MULTIPLIER         ; 1                         ; Untyped             ;
+; INVALID_LOCK_MULTIPLIER       ; 5                         ; Untyped             ;
+; SWITCH_OVER_ON_LOSSCLK        ; OFF                       ; Untyped             ;
+; SWITCH_OVER_ON_GATED_LOCK     ; OFF                       ; Untyped             ;
+; ENABLE_SWITCH_OVER_COUNTER    ; OFF                       ; Untyped             ;
+; SKIP_VCO                      ; OFF                       ; Untyped             ;
+; SWITCH_OVER_COUNTER           ; 0                         ; Untyped             ;
+; SWITCH_OVER_TYPE              ; AUTO                      ; Untyped             ;
+; FEEDBACK_SOURCE               ; EXTCLK0                   ; Untyped             ;
+; BANDWIDTH                     ; 0                         ; Untyped             ;
+; BANDWIDTH_TYPE                ; AUTO                      ; Untyped             ;
+; SPREAD_FREQUENCY              ; 0                         ; Untyped             ;
+; DOWN_SPREAD                   ; 0                         ; Untyped             ;
+; SELF_RESET_ON_GATED_LOSS_LOCK ; OFF                       ; Untyped             ;
+; SELF_RESET_ON_LOSS_LOCK       ; OFF                       ; Untyped             ;
+; CLK9_MULTIPLY_BY              ; 0                         ; Untyped             ;
+; CLK8_MULTIPLY_BY              ; 0                         ; Untyped             ;
+; CLK7_MULTIPLY_BY              ; 0                         ; Untyped             ;
+; CLK6_MULTIPLY_BY              ; 0                         ; Untyped             ;
+; CLK5_MULTIPLY_BY              ; 1                         ; Untyped             ;
+; CLK4_MULTIPLY_BY              ; 1                         ; Untyped             ;
+; CLK3_MULTIPLY_BY              ; 1                         ; Untyped             ;
+; CLK2_MULTIPLY_BY              ; 1                         ; Untyped             ;
+; CLK1_MULTIPLY_BY              ; 1                         ; Untyped             ;
+; CLK0_MULTIPLY_BY              ; 1                         ; Signed Integer      ;
+; CLK9_DIVIDE_BY                ; 0                         ; Untyped             ;
+; CLK8_DIVIDE_BY                ; 0                         ; Untyped             ;
+; CLK7_DIVIDE_BY                ; 0                         ; Untyped             ;
+; CLK6_DIVIDE_BY                ; 0                         ; Untyped             ;
+; CLK5_DIVIDE_BY                ; 1                         ; Untyped             ;
+; CLK4_DIVIDE_BY                ; 1                         ; Untyped             ;
+; CLK3_DIVIDE_BY                ; 1                         ; Untyped             ;
+; CLK2_DIVIDE_BY                ; 1                         ; Untyped             ;
+; CLK1_DIVIDE_BY                ; 1                         ; Untyped             ;
+; CLK0_DIVIDE_BY                ; 2                         ; Signed Integer      ;
+; CLK9_PHASE_SHIFT              ; 0                         ; Untyped             ;
+; CLK8_PHASE_SHIFT              ; 0                         ; Untyped             ;
+; CLK7_PHASE_SHIFT              ; 0                         ; Untyped             ;
+; CLK6_PHASE_SHIFT              ; 0                         ; Untyped             ;
+; CLK5_PHASE_SHIFT              ; 0                         ; Untyped             ;
+; CLK4_PHASE_SHIFT              ; 0                         ; Untyped             ;
+; CLK3_PHASE_SHIFT              ; 0                         ; Untyped             ;
+; CLK2_PHASE_SHIFT              ; 0                         ; Untyped             ;
+; CLK1_PHASE_SHIFT              ; 0                         ; Untyped             ;
+; CLK0_PHASE_SHIFT              ; 0                         ; Untyped             ;
+; CLK5_TIME_DELAY               ; 0                         ; Untyped             ;
+; CLK4_TIME_DELAY               ; 0                         ; Untyped             ;
+; CLK3_TIME_DELAY               ; 0                         ; Untyped             ;
+; CLK2_TIME_DELAY               ; 0                         ; Untyped             ;
+; CLK1_TIME_DELAY               ; 0                         ; Untyped             ;
+; CLK0_TIME_DELAY               ; 0                         ; Untyped             ;
+; CLK9_DUTY_CYCLE               ; 50                        ; Untyped             ;
+; CLK8_DUTY_CYCLE               ; 50                        ; Untyped             ;
+; CLK7_DUTY_CYCLE               ; 50                        ; Untyped             ;
+; CLK6_DUTY_CYCLE               ; 50                        ; Untyped             ;
+; CLK5_DUTY_CYCLE               ; 50                        ; Untyped             ;
+; CLK4_DUTY_CYCLE               ; 50                        ; Untyped             ;
+; CLK3_DUTY_CYCLE               ; 50                        ; Untyped             ;
+; CLK2_DUTY_CYCLE               ; 50                        ; Untyped             ;
+; CLK1_DUTY_CYCLE               ; 50                        ; Untyped             ;
+; CLK0_DUTY_CYCLE               ; 50                        ; Signed Integer      ;
+; CLK9_USE_EVEN_COUNTER_MODE    ; OFF                       ; Untyped             ;
+; CLK8_USE_EVEN_COUNTER_MODE    ; OFF                       ; Untyped             ;
+; CLK7_USE_EVEN_COUNTER_MODE    ; OFF                       ; Untyped             ;
+; CLK6_USE_EVEN_COUNTER_MODE    ; OFF                       ; Untyped             ;
+; CLK5_USE_EVEN_COUNTER_MODE    ; OFF                       ; Untyped             ;
+; CLK4_USE_EVEN_COUNTER_MODE    ; OFF                       ; Untyped             ;
+; CLK3_USE_EVEN_COUNTER_MODE    ; OFF                       ; Untyped             ;
+; CLK2_USE_EVEN_COUNTER_MODE    ; OFF                       ; Untyped             ;
+; CLK1_USE_EVEN_COUNTER_MODE    ; OFF                       ; Untyped             ;
+; CLK0_USE_EVEN_COUNTER_MODE    ; OFF                       ; Untyped             ;
+; CLK9_USE_EVEN_COUNTER_VALUE   ; OFF                       ; Untyped             ;
+; CLK8_USE_EVEN_COUNTER_VALUE   ; OFF                       ; Untyped             ;
+; CLK7_USE_EVEN_COUNTER_VALUE   ; OFF                       ; Untyped             ;
+; CLK6_USE_EVEN_COUNTER_VALUE   ; OFF                       ; Untyped             ;
+; CLK5_USE_EVEN_COUNTER_VALUE   ; OFF                       ; Untyped             ;
+; CLK4_USE_EVEN_COUNTER_VALUE   ; OFF                       ; Untyped             ;
+; CLK3_USE_EVEN_COUNTER_VALUE   ; OFF                       ; Untyped             ;
+; CLK2_USE_EVEN_COUNTER_VALUE   ; OFF                       ; Untyped             ;
+; CLK1_USE_EVEN_COUNTER_VALUE   ; OFF                       ; Untyped             ;
+; CLK0_USE_EVEN_COUNTER_VALUE   ; OFF                       ; Untyped             ;
+; LOCK_WINDOW_UI                ;  0.05                     ; Untyped             ;
+; LOCK_WINDOW_UI_BITS           ; UNUSED                    ; Untyped             ;
+; VCO_RANGE_DETECTOR_LOW_BITS   ; UNUSED                    ; Untyped             ;
+; VCO_RANGE_DETECTOR_HIGH_BITS  ; UNUSED                    ; Untyped             ;
+; DPA_MULTIPLY_BY               ; 0                         ; Untyped             ;
+; DPA_DIVIDE_BY                 ; 1                         ; Untyped             ;
+; DPA_DIVIDER                   ; 0                         ; Untyped             ;
+; EXTCLK3_MULTIPLY_BY           ; 1                         ; Untyped             ;
+; EXTCLK2_MULTIPLY_BY           ; 1                         ; Untyped             ;
+; EXTCLK1_MULTIPLY_BY           ; 1                         ; Untyped             ;
+; EXTCLK0_MULTIPLY_BY           ; 1                         ; Untyped             ;
+; EXTCLK3_DIVIDE_BY             ; 1                         ; Untyped             ;
+; EXTCLK2_DIVIDE_BY             ; 1                         ; Untyped             ;
+; EXTCLK1_DIVIDE_BY             ; 1                         ; Untyped             ;
+; EXTCLK0_DIVIDE_BY             ; 1                         ; Untyped             ;
+; EXTCLK3_PHASE_SHIFT           ; 0                         ; Untyped             ;
+; EXTCLK2_PHASE_SHIFT           ; 0                         ; Untyped             ;
+; EXTCLK1_PHASE_SHIFT           ; 0                         ; Untyped             ;
+; EXTCLK0_PHASE_SHIFT           ; 0                         ; Untyped             ;
+; EXTCLK3_TIME_DELAY            ; 0                         ; Untyped             ;
+; EXTCLK2_TIME_DELAY            ; 0                         ; Untyped             ;
+; EXTCLK1_TIME_DELAY            ; 0                         ; Untyped             ;
+; EXTCLK0_TIME_DELAY            ; 0                         ; Untyped             ;
+; EXTCLK3_DUTY_CYCLE            ; 50                        ; Untyped             ;
+; EXTCLK2_DUTY_CYCLE            ; 50                        ; Untyped             ;
+; EXTCLK1_DUTY_CYCLE            ; 50                        ; Untyped             ;
+; EXTCLK0_DUTY_CYCLE            ; 50                        ; Untyped             ;
+; VCO_MULTIPLY_BY               ; 0                         ; Untyped             ;
+; VCO_DIVIDE_BY                 ; 0                         ; Untyped             ;
+; SCLKOUT0_PHASE_SHIFT          ; 0                         ; Untyped             ;
+; SCLKOUT1_PHASE_SHIFT          ; 0                         ; Untyped             ;
+; VCO_MIN                       ; 0                         ; Untyped             ;
+; VCO_MAX                       ; 0                         ; Untyped             ;
+; VCO_CENTER                    ; 0                         ; Untyped             ;
+; PFD_MIN                       ; 0                         ; Untyped             ;
+; PFD_MAX                       ; 0                         ; Untyped             ;
+; M_INITIAL                     ; 0                         ; Untyped             ;
+; M                             ; 0                         ; Untyped             ;
+; N                             ; 1                         ; Untyped             ;
+; M2                            ; 1                         ; Untyped             ;
+; N2                            ; 1                         ; Untyped             ;
+; SS                            ; 1                         ; Untyped             ;
+; C0_HIGH                       ; 0                         ; Untyped             ;
+; C1_HIGH                       ; 0                         ; Untyped             ;
+; C2_HIGH                       ; 0                         ; Untyped             ;
+; C3_HIGH                       ; 0                         ; Untyped             ;
+; C4_HIGH                       ; 0                         ; Untyped             ;
+; C5_HIGH                       ; 0                         ; Untyped             ;
+; C6_HIGH                       ; 0                         ; Untyped             ;
+; C7_HIGH                       ; 0                         ; Untyped             ;
+; C8_HIGH                       ; 0                         ; Untyped             ;
+; C9_HIGH                       ; 0                         ; Untyped             ;
+; C0_LOW                        ; 0                         ; Untyped             ;
+; C1_LOW                        ; 0                         ; Untyped             ;
+; C2_LOW                        ; 0                         ; Untyped             ;
+; C3_LOW                        ; 0                         ; Untyped             ;
+; C4_LOW                        ; 0                         ; Untyped             ;
+; C5_LOW                        ; 0                         ; Untyped             ;
+; C6_LOW                        ; 0                         ; Untyped             ;
+; C7_LOW                        ; 0                         ; Untyped             ;
+; C8_LOW                        ; 0                         ; Untyped             ;
+; C9_LOW                        ; 0                         ; Untyped             ;
+; C0_INITIAL                    ; 0                         ; Untyped             ;
+; C1_INITIAL                    ; 0                         ; Untyped             ;
+; C2_INITIAL                    ; 0                         ; Untyped             ;
+; C3_INITIAL                    ; 0                         ; Untyped             ;
+; C4_INITIAL                    ; 0                         ; Untyped             ;
+; C5_INITIAL                    ; 0                         ; Untyped             ;
+; C6_INITIAL                    ; 0                         ; Untyped             ;
+; C7_INITIAL                    ; 0                         ; Untyped             ;
+; C8_INITIAL                    ; 0                         ; Untyped             ;
+; C9_INITIAL                    ; 0                         ; Untyped             ;
+; C0_MODE                       ; BYPASS                    ; Untyped             ;
+; C1_MODE                       ; BYPASS                    ; Untyped             ;
+; C2_MODE                       ; BYPASS                    ; Untyped             ;
+; C3_MODE                       ; BYPASS                    ; Untyped             ;
+; C4_MODE                       ; BYPASS                    ; Untyped             ;
+; C5_MODE                       ; BYPASS                    ; Untyped             ;
+; C6_MODE                       ; BYPASS                    ; Untyped             ;
+; C7_MODE                       ; BYPASS                    ; Untyped             ;
+; C8_MODE                       ; BYPASS                    ; Untyped             ;
+; C9_MODE                       ; BYPASS                    ; Untyped             ;
+; C0_PH                         ; 0                         ; Untyped             ;
+; C1_PH                         ; 0                         ; Untyped             ;
+; C2_PH                         ; 0                         ; Untyped             ;
+; C3_PH                         ; 0                         ; Untyped             ;
+; C4_PH                         ; 0                         ; Untyped             ;
+; C5_PH                         ; 0                         ; Untyped             ;
+; C6_PH                         ; 0                         ; Untyped             ;
+; C7_PH                         ; 0                         ; Untyped             ;
+; C8_PH                         ; 0                         ; Untyped             ;
+; C9_PH                         ; 0                         ; Untyped             ;
+; L0_HIGH                       ; 1                         ; Untyped             ;
+; L1_HIGH                       ; 1                         ; Untyped             ;
+; G0_HIGH                       ; 1                         ; Untyped             ;
+; G1_HIGH                       ; 1                         ; Untyped             ;
+; G2_HIGH                       ; 1                         ; Untyped             ;
+; G3_HIGH                       ; 1                         ; Untyped             ;
+; E0_HIGH                       ; 1                         ; Untyped             ;
+; E1_HIGH                       ; 1                         ; Untyped             ;
+; E2_HIGH                       ; 1                         ; Untyped             ;
+; E3_HIGH                       ; 1                         ; Untyped             ;
+; L0_LOW                        ; 1                         ; Untyped             ;
+; L1_LOW                        ; 1                         ; Untyped             ;
+; G0_LOW                        ; 1                         ; Untyped             ;
+; G1_LOW                        ; 1                         ; Untyped             ;
+; G2_LOW                        ; 1                         ; Untyped             ;
+; G3_LOW                        ; 1                         ; Untyped             ;
+; E0_LOW                        ; 1                         ; Untyped             ;
+; E1_LOW                        ; 1                         ; Untyped             ;
+; E2_LOW                        ; 1                         ; Untyped             ;
+; E3_LOW                        ; 1                         ; Untyped             ;
+; L0_INITIAL                    ; 1                         ; Untyped             ;
+; L1_INITIAL                    ; 1                         ; Untyped             ;
+; G0_INITIAL                    ; 1                         ; Untyped             ;
+; G1_INITIAL                    ; 1                         ; Untyped             ;
+; G2_INITIAL                    ; 1                         ; Untyped             ;
+; G3_INITIAL                    ; 1                         ; Untyped             ;
+; E0_INITIAL                    ; 1                         ; Untyped             ;
+; E1_INITIAL                    ; 1                         ; Untyped             ;
+; E2_INITIAL                    ; 1                         ; Untyped             ;
+; E3_INITIAL                    ; 1                         ; Untyped             ;
+; L0_MODE                       ; BYPASS                    ; Untyped             ;
+; L1_MODE                       ; BYPASS                    ; Untyped             ;
+; G0_MODE                       ; BYPASS                    ; Untyped             ;
+; G1_MODE                       ; BYPASS                    ; Untyped             ;
+; G2_MODE                       ; BYPASS                    ; Untyped             ;
+; G3_MODE                       ; BYPASS                    ; Untyped             ;
+; E0_MODE                       ; BYPASS                    ; Untyped             ;
+; E1_MODE                       ; BYPASS                    ; Untyped             ;
+; E2_MODE                       ; BYPASS                    ; Untyped             ;
+; E3_MODE                       ; BYPASS                    ; Untyped             ;
+; L0_PH                         ; 0                         ; Untyped             ;
+; L1_PH                         ; 0                         ; Untyped             ;
+; G0_PH                         ; 0                         ; Untyped             ;
+; G1_PH                         ; 0                         ; Untyped             ;
+; G2_PH                         ; 0                         ; Untyped             ;
+; G3_PH                         ; 0                         ; Untyped             ;
+; E0_PH                         ; 0                         ; Untyped             ;
+; E1_PH                         ; 0                         ; Untyped             ;
+; E2_PH                         ; 0                         ; Untyped             ;
+; E3_PH                         ; 0                         ; Untyped             ;
+; M_PH                          ; 0                         ; Untyped             ;
+; C1_USE_CASC_IN                ; OFF                       ; Untyped             ;
+; C2_USE_CASC_IN                ; OFF                       ; Untyped             ;
+; C3_USE_CASC_IN                ; OFF                       ; Untyped             ;
+; C4_USE_CASC_IN                ; OFF                       ; Untyped             ;
+; C5_USE_CASC_IN                ; OFF                       ; Untyped             ;
+; C6_USE_CASC_IN                ; OFF                       ; Untyped             ;
+; C7_USE_CASC_IN                ; OFF                       ; Untyped             ;
+; C8_USE_CASC_IN                ; OFF                       ; Untyped             ;
+; C9_USE_CASC_IN                ; OFF                       ; Untyped             ;
+; CLK0_COUNTER                  ; G0                        ; Untyped             ;
+; CLK1_COUNTER                  ; G0                        ; Untyped             ;
+; CLK2_COUNTER                  ; G0                        ; Untyped             ;
+; CLK3_COUNTER                  ; G0                        ; Untyped             ;
+; CLK4_COUNTER                  ; G0                        ; Untyped             ;
+; CLK5_COUNTER                  ; G0                        ; Untyped             ;
+; CLK6_COUNTER                  ; E0                        ; Untyped             ;
+; CLK7_COUNTER                  ; E1                        ; Untyped             ;
+; CLK8_COUNTER                  ; E2                        ; Untyped             ;
+; CLK9_COUNTER                  ; E3                        ; Untyped             ;
+; L0_TIME_DELAY                 ; 0                         ; Untyped             ;
+; L1_TIME_DELAY                 ; 0                         ; Untyped             ;
+; G0_TIME_DELAY                 ; 0                         ; Untyped             ;
+; G1_TIME_DELAY                 ; 0                         ; Untyped             ;
+; G2_TIME_DELAY                 ; 0                         ; Untyped             ;
+; G3_TIME_DELAY                 ; 0                         ; Untyped             ;
+; E0_TIME_DELAY                 ; 0                         ; Untyped             ;
+; E1_TIME_DELAY                 ; 0                         ; Untyped             ;
+; E2_TIME_DELAY                 ; 0                         ; Untyped             ;
+; E3_TIME_DELAY                 ; 0                         ; Untyped             ;
+; M_TIME_DELAY                  ; 0                         ; Untyped             ;
+; N_TIME_DELAY                  ; 0                         ; Untyped             ;
+; EXTCLK3_COUNTER               ; E3                        ; Untyped             ;
+; EXTCLK2_COUNTER               ; E2                        ; Untyped             ;
+; EXTCLK1_COUNTER               ; E1                        ; Untyped             ;
+; EXTCLK0_COUNTER               ; E0                        ; Untyped             ;
+; ENABLE0_COUNTER               ; L0                        ; Untyped             ;
+; ENABLE1_COUNTER               ; L0                        ; Untyped             ;
+; CHARGE_PUMP_CURRENT           ; 2                         ; Untyped             ;
+; LOOP_FILTER_R                 ;  1.000000                 ; Untyped             ;
+; LOOP_FILTER_C                 ; 5                         ; Untyped             ;
+; CHARGE_PUMP_CURRENT_BITS      ; 9999                      ; Untyped             ;
+; LOOP_FILTER_R_BITS            ; 9999                      ; Untyped             ;
+; LOOP_FILTER_C_BITS            ; 9999                      ; Untyped             ;
+; VCO_POST_SCALE                ; 0                         ; Untyped             ;
+; CLK2_OUTPUT_FREQUENCY         ; 0                         ; Untyped             ;
+; CLK1_OUTPUT_FREQUENCY         ; 0                         ; Untyped             ;
+; CLK0_OUTPUT_FREQUENCY         ; 0                         ; Untyped             ;
+; INTENDED_DEVICE_FAMILY        ; Cyclone IV E              ; Untyped             ;
+; PORT_CLKENA0                  ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLKENA1                  ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLKENA2                  ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLKENA3                  ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLKENA4                  ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLKENA5                  ; PORT_UNUSED               ; Untyped             ;
+; PORT_EXTCLKENA0               ; PORT_CONNECTIVITY         ; Untyped             ;
+; PORT_EXTCLKENA1               ; PORT_CONNECTIVITY         ; Untyped             ;
+; PORT_EXTCLKENA2               ; PORT_CONNECTIVITY         ; Untyped             ;
+; PORT_EXTCLKENA3               ; PORT_CONNECTIVITY         ; Untyped             ;
+; PORT_EXTCLK0                  ; PORT_UNUSED               ; Untyped             ;
+; PORT_EXTCLK1                  ; PORT_UNUSED               ; Untyped             ;
+; PORT_EXTCLK2                  ; PORT_UNUSED               ; Untyped             ;
+; PORT_EXTCLK3                  ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLKBAD0                  ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLKBAD1                  ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLK0                     ; PORT_USED                 ; Untyped             ;
+; PORT_CLK1                     ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLK2                     ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLK3                     ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLK4                     ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLK5                     ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLK6                     ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLK7                     ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLK8                     ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLK9                     ; PORT_UNUSED               ; Untyped             ;
+; PORT_SCANDATA                 ; PORT_UNUSED               ; Untyped             ;
+; PORT_SCANDATAOUT              ; PORT_UNUSED               ; Untyped             ;
+; PORT_SCANDONE                 ; PORT_UNUSED               ; Untyped             ;
+; PORT_SCLKOUT1                 ; PORT_CONNECTIVITY         ; Untyped             ;
+; PORT_SCLKOUT0                 ; PORT_CONNECTIVITY         ; Untyped             ;
+; PORT_ACTIVECLOCK              ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLKLOSS                  ; PORT_UNUSED               ; Untyped             ;
+; PORT_INCLK1                   ; PORT_UNUSED               ; Untyped             ;
+; PORT_INCLK0                   ; PORT_USED                 ; Untyped             ;
+; PORT_FBIN                     ; PORT_UNUSED               ; Untyped             ;
+; PORT_PLLENA                   ; PORT_UNUSED               ; Untyped             ;
+; PORT_CLKSWITCH                ; PORT_UNUSED               ; Untyped             ;
+; PORT_ARESET                   ; PORT_USED                 ; Untyped             ;
+; PORT_PFDENA                   ; PORT_UNUSED               ; Untyped             ;
+; PORT_SCANCLK                  ; PORT_UNUSED               ; Untyped             ;
+; PORT_SCANACLR                 ; PORT_UNUSED               ; Untyped             ;
+; PORT_SCANREAD                 ; PORT_UNUSED               ; Untyped             ;
+; PORT_SCANWRITE                ; PORT_UNUSED               ; Untyped             ;
+; PORT_ENABLE0                  ; PORT_CONNECTIVITY         ; Untyped             ;
+; PORT_ENABLE1                  ; PORT_CONNECTIVITY         ; Untyped             ;
+; PORT_LOCKED                   ; PORT_USED                 ; Untyped             ;
+; PORT_CONFIGUPDATE             ; PORT_UNUSED               ; Untyped             ;
+; PORT_FBOUT                    ; PORT_CONNECTIVITY         ; Untyped             ;
+; PORT_PHASEDONE                ; PORT_UNUSED               ; Untyped             ;
+; PORT_PHASESTEP                ; PORT_UNUSED               ; Untyped             ;
+; PORT_PHASEUPDOWN              ; PORT_UNUSED               ; Untyped             ;
+; PORT_SCANCLKENA               ; PORT_UNUSED               ; Untyped             ;
+; PORT_PHASECOUNTERSELECT       ; PORT_UNUSED               ; Untyped             ;
+; PORT_VCOOVERRANGE             ; PORT_CONNECTIVITY         ; Untyped             ;
+; PORT_VCOUNDERRANGE            ; PORT_CONNECTIVITY         ; Untyped             ;
+; M_TEST_SOURCE                 ; 5                         ; Untyped             ;
+; C0_TEST_SOURCE                ; 5                         ; Untyped             ;
+; C1_TEST_SOURCE                ; 5                         ; Untyped             ;
+; C2_TEST_SOURCE                ; 5                         ; Untyped             ;
+; C3_TEST_SOURCE                ; 5                         ; Untyped             ;
+; C4_TEST_SOURCE                ; 5                         ; Untyped             ;
+; C5_TEST_SOURCE                ; 5                         ; Untyped             ;
+; C6_TEST_SOURCE                ; 5                         ; Untyped             ;
+; C7_TEST_SOURCE                ; 5                         ; Untyped             ;
+; C8_TEST_SOURCE                ; 5                         ; Untyped             ;
+; C9_TEST_SOURCE                ; 5                         ; Untyped             ;
+; CBXI_PARAMETER                ; VGA_PLL_altpll            ; Untyped             ;
+; VCO_FREQUENCY_CONTROL         ; AUTO                      ; Untyped             ;
+; VCO_PHASE_SHIFT_STEP          ; 0                         ; Untyped             ;
+; WIDTH_CLOCK                   ; 5                         ; Signed Integer      ;
+; WIDTH_PHASECOUNTERSELECT      ; 4                         ; Untyped             ;
+; USING_FBMIMICBIDIR_PORT       ; OFF                       ; Untyped             ;
+; DEVICE_FAMILY                 ; Cyclone IV E              ; Untyped             ;
+; SCAN_CHAIN_MIF_FILE           ; UNUSED                    ; Untyped             ;
+; SIM_GATE_LOCK_DEVICE_BEHAVIOR ; OFF                       ; Untyped             ;
+; AUTO_CARRY_CHAINS             ; ON                        ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS          ; OFF                       ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS           ; ON                        ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS        ; OFF                       ; IGNORE_CASCADE      ;
++-------------------------------+---------------------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: img_data:img_data_inst ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; HEIGHT         ; 240   ; Signed Integer                             ;
+; WIDTH          ; 320   ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: img_data:img_data_inst|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------------------+
+; Parameter Name                     ; Value                ; Type                                    ;
++------------------------------------+----------------------+-----------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                 ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                          ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                 ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                 ;
+; WIDTH_A                            ; 8                    ; Signed Integer                          ;
+; WIDTHAD_A                          ; 17                   ; Signed Integer                          ;
+; NUMWORDS_A                         ; 76800                ; Signed Integer                          ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                 ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                 ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                 ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                 ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                 ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                 ;
+; WIDTH_B                            ; 1                    ; Untyped                                 ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                 ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                 ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                 ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                 ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                 ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                 ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                 ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                 ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                 ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                 ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                 ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                 ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                 ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                 ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                          ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                 ;
+; RAM_BLOCK_TYPE                     ; M9K                  ; Untyped                                 ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                 ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                 ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                 ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                 ;
+; INIT_FILE                          ; ./img_data.mif       ; Untyped                                 ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                 ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                 ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                 ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                 ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                 ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                 ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                 ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                 ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                 ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                 ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                 ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                 ;
+; CBXI_PARAMETER                     ; altsyncram_t7c1      ; Untyped                                 ;
++------------------------------------+----------------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: img_index:img_index_inst|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                      ;
++------------------------------------+----------------------+-------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                   ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                              ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                            ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                   ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                   ;
+; WIDTH_A                            ; 24                   ; Signed Integer                            ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                            ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                            ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                   ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                   ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                   ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                   ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                   ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                   ;
+; WIDTH_B                            ; 1                    ; Untyped                                   ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                   ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                   ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                   ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                   ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                   ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                   ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                   ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                   ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                   ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                   ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                   ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                   ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                            ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                   ;
+; RAM_BLOCK_TYPE                     ; M9K                  ; Untyped                                   ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                   ;
+; INIT_FILE                          ; ./img_index.mif      ; Untyped                                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                   ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                   ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                   ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                   ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                   ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                   ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                   ;
+; CBXI_PARAMETER                     ; altsyncram_h8c1      ; Untyped                                   ;
++------------------------------------+----------------------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                          ;
++------------------------------------+----------------------+-----------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                       ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                       ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                       ;
+; WIDTH_A                            ; 24                   ; Signed Integer                                ;
+; WIDTHAD_A                          ; 17                   ; Signed Integer                                ;
+; NUMWORDS_A                         ; 76800                ; Signed Integer                                ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                       ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                       ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                       ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; WIDTH_B                            ; 24                   ; Signed Integer                                ;
+; WIDTHAD_B                          ; 17                   ; Signed Integer                                ;
+; NUMWORDS_B                         ; 76800                ; Signed Integer                                ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                       ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                       ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                       ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                       ;
+; OUTDATA_REG_B                      ; CLOCK0               ; Untyped                                       ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                       ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                       ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                       ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                       ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                       ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                       ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                       ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                       ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                       ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                       ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                       ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                                       ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                       ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                                       ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                       ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                       ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                       ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                       ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                       ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                       ;
+; CBXI_PARAMETER                     ; altsyncram_jon1      ; Untyped                                       ;
++------------------------------------+----------------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_controller:vga_ins|video_sync_generator:LTM_ins ;
++----------------+-------+-------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                    ;
++----------------+-------+-------------------------------------------------------------------------+
+; hori_line      ; 800   ; Signed Integer                                                          ;
+; hori_back      ; 144   ; Signed Integer                                                          ;
+; hori_front     ; 16    ; Signed Integer                                                          ;
+; vert_line      ; 525   ; Signed Integer                                                          ;
+; vert_back      ; 34    ; Signed Integer                                                          ;
+; vert_front     ; 11    ; Signed Integer                                                          ;
+; H_sync_cycle   ; 96    ; Signed Integer                                                          ;
+; V_sync_cycle   ; 2     ; Signed Integer                                                          ;
++----------------+-------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; altpll Parameter Settings by Entity Instance                       ;
++-------------------------------+------------------------------------+
+; Name                          ; Value                              ;
++-------------------------------+------------------------------------+
+; Number of entity instances    ; 1                                  ;
+; Entity Instance               ; VGA_PLL:p1|altpll:altpll_component ;
+;     -- OPERATION_MODE         ; NORMAL                             ;
+;     -- PLL_TYPE               ; AUTO                               ;
+;     -- PRIMARY_CLOCK          ; INCLK0                             ;
+;     -- INCLK0_INPUT_FREQUENCY ; 20000                              ;
+;     -- INCLK1_INPUT_FREQUENCY ; 0                                  ;
+;     -- VCO_MULTIPLY_BY        ; 0                                  ;
+;     -- VCO_DIVIDE_BY          ; 0                                  ;
++-------------------------------+------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                         ;
++-------------------------------------------+--------------------------------------------------------------+
+; Name                                      ; Value                                                        ;
++-------------------------------------------+--------------------------------------------------------------+
+; Number of entity instances                ; 3                                                            ;
+; Entity Instance                           ; img_data:img_data_inst|altsyncram:altsyncram_component       ;
+;     -- OPERATION_MODE                     ; ROM                                                          ;
+;     -- WIDTH_A                            ; 8                                                            ;
+;     -- NUMWORDS_A                         ; 76800                                                        ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                 ;
+;     -- WIDTH_B                            ; 1                                                            ;
+;     -- NUMWORDS_B                         ; 1                                                            ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                 ;
+;     -- RAM_BLOCK_TYPE                     ; M9K                                                          ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                    ;
+; Entity Instance                           ; img_index:img_index_inst|altsyncram:altsyncram_component     ;
+;     -- OPERATION_MODE                     ; ROM                                                          ;
+;     -- WIDTH_A                            ; 24                                                           ;
+;     -- NUMWORDS_A                         ; 256                                                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                 ;
+;     -- WIDTH_B                            ; 1                                                            ;
+;     -- NUMWORDS_B                         ; 1                                                            ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                 ;
+;     -- RAM_BLOCK_TYPE                     ; M9K                                                          ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                    ;
+; Entity Instance                           ; filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                    ;
+;     -- WIDTH_A                            ; 24                                                           ;
+;     -- NUMWORDS_A                         ; 76800                                                        ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                 ;
+;     -- WIDTH_B                            ; 24                                                           ;
+;     -- NUMWORDS_B                         ; 76800                                                        ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                       ;
+;     -- OUTDATA_REG_B                      ; CLOCK0                                                       ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                     ;
++-------------------------------------------+--------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_controller:vga_ins"                                                                                                             ;
++----------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                         ;
++----------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; oAddress ; Output ; Warning  ; Output or bidir port (19 bits) is wider than the port expression (17 bits) it drives; bit(s) "oAddress[18..17]" have no fanouts ;
++----------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "filter:f0|ram_2_port:my_fram"                                                                                                                     ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                                                      ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; data      ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; rdaddress ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; wraddress ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; wren      ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; q         ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "VGA_PLL:p1"                                                                                                ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                  ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; locked ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 53                          ;
+; cycloneiii_ff         ; 113                         ;
+;     CLR               ; 13                          ;
+;     ENA               ; 19                          ;
+;     ENA CLR           ; 28                          ;
+;     ENA CLR SCLR SLD  ; 17                          ;
+;     plain             ; 36                          ;
+; cycloneiii_lcell_comb ; 228                         ;
+;     arith             ; 53                          ;
+;         2 data inputs ; 51                          ;
+;         3 data inputs ; 2                           ;
+;     normal            ; 175                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 30                          ;
+;         3 data inputs ; 46                          ;
+;         4 data inputs ; 94                          ;
+; cycloneiii_pll        ; 1                           ;
+; cycloneiii_ram_block  ; 104                         ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.14                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Thu Oct 06 23:46:28 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Q3 -c Q3
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file video_sync_generator.v
+    Info (12023): Found entity 1: video_sync_generator File: C:/Users/HADK2100/Downloads/Q3_template/video_sync_generator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.v
+    Info (12023): Found entity 1: vga_controller File: C:/Users/HADK2100/Downloads/Q3_template/vga_controller.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file reset_delay.v
+    Info (12023): Found entity 1: Reset_Delay File: C:/Users/HADK2100/Downloads/Q3_template/Reset_Delay.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file img_index.v
+    Info (12023): Found entity 1: img_index File: C:/Users/HADK2100/Downloads/Q3_template/img_index.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file img_data.v
+    Info (12023): Found entity 1: img_data File: C:/Users/HADK2100/Downloads/Q3_template/img_data.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file filter.v
+    Info (12023): Found entity 1: filter File: C:/Users/HADK2100/Downloads/Q3_template/filter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file q3.v
+    Info (12023): Found entity 1: Q3 File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga_pll.v
+    Info (12023): Found entity 1: VGA_PLL File: C:/Users/HADK2100/Downloads/Q3_template/VGA_PLL.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file ram_2_port.v
+    Info (12023): Found entity 1: ram_2_port File: C:/Users/HADK2100/Downloads/Q3_template/ram_2_port.v Line: 39
+Info (12127): Elaborating entity "Q3" for the top level hierarchy
+Warning (10034): Output port "VGA_SYNC_N" at Q3.v(13) has no driver File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 13
+Info (12128): Elaborating entity "Reset_Delay" for hierarchy "Reset_Delay:r0" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 33
+Warning (10230): Verilog HDL assignment warning at Reset_Delay.v(12): truncated value with size 32 to match size of target (20) File: C:/Users/HADK2100/Downloads/Q3_template/Reset_Delay.v Line: 12
+Info (12128): Elaborating entity "VGA_PLL" for hierarchy "VGA_PLL:p1" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 36
+Info (12128): Elaborating entity "altpll" for hierarchy "VGA_PLL:p1|altpll:altpll_component" File: C:/Users/HADK2100/Downloads/Q3_template/VGA_PLL.v Line: 103
+Info (12130): Elaborated megafunction instantiation "VGA_PLL:p1|altpll:altpll_component" File: C:/Users/HADK2100/Downloads/Q3_template/VGA_PLL.v Line: 103
+Info (12133): Instantiated megafunction "VGA_PLL:p1|altpll:altpll_component" with the following parameter: File: C:/Users/HADK2100/Downloads/Q3_template/VGA_PLL.v Line: 103
+    Info (12134): Parameter "bandwidth_type" = "AUTO"
+    Info (12134): Parameter "clk0_divide_by" = "2"
+    Info (12134): Parameter "clk0_duty_cycle" = "50"
+    Info (12134): Parameter "clk0_multiply_by" = "1"
+    Info (12134): Parameter "clk0_phase_shift" = "0"
+    Info (12134): Parameter "compensate_clock" = "CLK0"
+    Info (12134): Parameter "inclk0_input_frequency" = "20000"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_hint" = "CBX_MODULE_PREFIX=VGA_PLL"
+    Info (12134): Parameter "lpm_type" = "altpll"
+    Info (12134): Parameter "operation_mode" = "NORMAL"
+    Info (12134): Parameter "pll_type" = "AUTO"
+    Info (12134): Parameter "port_activeclock" = "PORT_UNUSED"
+    Info (12134): Parameter "port_areset" = "PORT_USED"
+    Info (12134): Parameter "port_clkbad0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkbad1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkloss" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkswitch" = "PORT_UNUSED"
+    Info (12134): Parameter "port_configupdate" = "PORT_UNUSED"
+    Info (12134): Parameter "port_fbin" = "PORT_UNUSED"
+    Info (12134): Parameter "port_inclk0" = "PORT_USED"
+    Info (12134): Parameter "port_inclk1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_locked" = "PORT_USED"
+    Info (12134): Parameter "port_pfdena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasecounterselect" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasedone" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasestep" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phaseupdown" = "PORT_UNUSED"
+    Info (12134): Parameter "port_pllena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanaclr" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanclk" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanclkena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandata" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandataout" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandone" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanread" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanwrite" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk0" = "PORT_USED"
+    Info (12134): Parameter "port_clk1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk3" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk4" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk5" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena3" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena4" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena5" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
+    Info (12134): Parameter "self_reset_on_loss_lock" = "OFF"
+    Info (12134): Parameter "width_clock" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/vga_pll_altpll.v
+    Info (12023): Found entity 1: VGA_PLL_altpll File: C:/Users/HADK2100/Downloads/Q3_template/db/vga_pll_altpll.v Line: 30
+Info (12128): Elaborating entity "VGA_PLL_altpll" for hierarchy "VGA_PLL:p1|altpll:altpll_component|VGA_PLL_altpll:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altpll.tdf Line: 897
+Info (12128): Elaborating entity "img_data" for hierarchy "img_data:img_data_inst" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 44
+Info (12128): Elaborating entity "altsyncram" for hierarchy "img_data:img_data_inst|altsyncram:altsyncram_component" File: C:/Users/HADK2100/Downloads/Q3_template/img_data.v Line: 81
+Info (12130): Elaborated megafunction instantiation "img_data:img_data_inst|altsyncram:altsyncram_component" File: C:/Users/HADK2100/Downloads/Q3_template/img_data.v Line: 81
+Info (12133): Instantiated megafunction "img_data:img_data_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/HADK2100/Downloads/Q3_template/img_data.v Line: 81
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "./img_data.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "76800"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "ram_block_type" = "M9K"
+    Info (12134): Parameter "widthad_a" = "17"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_t7c1.tdf
+    Info (12023): Found entity 1: altsyncram_t7c1 File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_t7c1.tdf Line: 31
+Info (12128): Elaborating entity "altsyncram_t7c1" for hierarchy "img_data:img_data_inst|altsyncram:altsyncram_component|altsyncram_t7c1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_u9a.tdf
+    Info (12023): Found entity 1: decode_u9a File: C:/Users/HADK2100/Downloads/Q3_template/db/decode_u9a.tdf Line: 22
+Info (12128): Elaborating entity "decode_u9a" for hierarchy "img_data:img_data_inst|altsyncram:altsyncram_component|altsyncram_t7c1:auto_generated|decode_u9a:rden_decode" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_t7c1.tdf Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_lob.tdf
+    Info (12023): Found entity 1: mux_lob File: C:/Users/HADK2100/Downloads/Q3_template/db/mux_lob.tdf Line: 22
+Info (12128): Elaborating entity "mux_lob" for hierarchy "img_data:img_data_inst|altsyncram:altsyncram_component|altsyncram_t7c1:auto_generated|mux_lob:mux2" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_t7c1.tdf Line: 40
+Info (12128): Elaborating entity "img_index" for hierarchy "img_index:img_index_inst" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 51
+Info (12128): Elaborating entity "altsyncram" for hierarchy "img_index:img_index_inst|altsyncram:altsyncram_component" File: C:/Users/HADK2100/Downloads/Q3_template/img_index.v Line: 81
+Info (12130): Elaborated megafunction instantiation "img_index:img_index_inst|altsyncram:altsyncram_component" File: C:/Users/HADK2100/Downloads/Q3_template/img_index.v Line: 81
+Info (12133): Instantiated megafunction "img_index:img_index_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/HADK2100/Downloads/Q3_template/img_index.v Line: 81
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "./img_index.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "ram_block_type" = "M9K"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "24"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_h8c1.tdf
+    Info (12023): Found entity 1: altsyncram_h8c1 File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_h8c1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_h8c1" for hierarchy "img_index:img_index_inst|altsyncram:altsyncram_component|altsyncram_h8c1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "filter" for hierarchy "filter:f0" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 60
+Warning (10036): Verilog HDL or VHDL warning at filter.v(8): object "hold_red" assigned a value but never read File: C:/Users/HADK2100/Downloads/Q3_template/filter.v Line: 8
+Warning (10036): Verilog HDL or VHDL warning at filter.v(9): object "hold_green" assigned a value but never read File: C:/Users/HADK2100/Downloads/Q3_template/filter.v Line: 9
+Warning (10036): Verilog HDL or VHDL warning at filter.v(10): object "hold_blue" assigned a value but never read File: C:/Users/HADK2100/Downloads/Q3_template/filter.v Line: 10
+Warning (10036): Verilog HDL or VHDL warning at filter.v(12): object "scale_fac" assigned a value but never read File: C:/Users/HADK2100/Downloads/Q3_template/filter.v Line: 12
+Warning (10036): Verilog HDL or VHDL warning at filter.v(17): object "threshold" assigned a value but never read File: C:/Users/HADK2100/Downloads/Q3_template/filter.v Line: 17
+Warning (10036): Verilog HDL or VHDL warning at filter.v(21): object "kernel" assigned a value but never read File: C:/Users/HADK2100/Downloads/Q3_template/filter.v Line: 21
+Warning (10230): Verilog HDL assignment warning at filter.v(12): truncated value with size 64 to match size of target (4) File: C:/Users/HADK2100/Downloads/Q3_template/filter.v Line: 12
+Warning (10270): Verilog HDL Case Statement warning at filter.v(217): incomplete case statement has no default case item File: C:/Users/HADK2100/Downloads/Q3_template/filter.v Line: 217
+Warning (10235): Verilog HDL Always Construct warning at filter.v(242): variable "data_in" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/HADK2100/Downloads/Q3_template/filter.v Line: 242
+Warning (10034): Output port "out" at filter.v(2) has no driver File: C:/Users/HADK2100/Downloads/Q3_template/filter.v Line: 2
+Info (12128): Elaborating entity "ram_2_port" for hierarchy "filter:f0|ram_2_port:my_fram" File: C:/Users/HADK2100/Downloads/Q3_template/filter.v Line: 207
+Info (12128): Elaborating entity "altsyncram" for hierarchy "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component" File: C:/Users/HADK2100/Downloads/Q3_template/ram_2_port.v Line: 88
+Info (12130): Elaborated megafunction instantiation "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component" File: C:/Users/HADK2100/Downloads/Q3_template/ram_2_port.v Line: 88
+Info (12133): Instantiated megafunction "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/HADK2100/Downloads/Q3_template/ram_2_port.v Line: 88
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK0"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "76800"
+    Info (12134): Parameter "numwords_b" = "76800"
+    Info (12134): Parameter "operation_mode" = "DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_b" = "CLOCK0"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "OLD_DATA"
+    Info (12134): Parameter "widthad_a" = "17"
+    Info (12134): Parameter "widthad_b" = "17"
+    Info (12134): Parameter "width_a" = "24"
+    Info (12134): Parameter "width_b" = "24"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_jon1.tdf
+    Info (12023): Found entity 1: altsyncram_jon1 File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 31
+Info (12128): Elaborating entity "altsyncram_jon1" for hierarchy "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_5ua.tdf
+    Info (12023): Found entity 1: decode_5ua File: C:/Users/HADK2100/Downloads/Q3_template/db/decode_5ua.tdf Line: 22
+Info (12128): Elaborating entity "decode_5ua" for hierarchy "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|decode_5ua:decode2" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_3qb.tdf
+    Info (12023): Found entity 1: mux_3qb File: C:/Users/HADK2100/Downloads/Q3_template/db/mux_3qb.tdf Line: 22
+Info (12128): Elaborating entity "mux_3qb" for hierarchy "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|mux_3qb:mux3" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 44
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga_ins" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 76
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(78): truncated value with size 32 to match size of target (17) File: C:/Users/HADK2100/Downloads/Q3_template/vga_controller.v Line: 78
+Info (12128): Elaborating entity "video_sync_generator" for hierarchy "vga_controller:vga_ins|video_sync_generator:LTM_ins" File: C:/Users/HADK2100/Downloads/Q3_template/vga_controller.v Line: 38
+Warning (10230): Verilog HDL assignment warning at video_sync_generator.v(77): truncated value with size 32 to match size of target (10) File: C:/Users/HADK2100/Downloads/Q3_template/video_sync_generator.v Line: 77
+Warning (10230): Verilog HDL assignment warning at video_sync_generator.v(80): truncated value with size 32 to match size of target (11) File: C:/Users/HADK2100/Downloads/Q3_template/video_sync_generator.v Line: 80
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a0" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 45
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a1" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 76
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a2" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 107
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a3" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 138
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a4" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 169
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a5" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 200
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a6" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 231
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a7" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 262
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a8" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 293
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a9" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 324
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a10" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 355
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a11" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 386
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a12" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 417
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a13" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 448
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a14" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 479
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a15" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 510
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a16" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 541
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a17" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 572
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a18" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 603
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a19" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 634
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a20" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 665
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a21" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 696
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a22" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 727
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a23" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 758
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a24" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 789
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a25" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 820
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a26" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 851
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a27" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 882
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a28" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 913
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a29" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 944
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a30" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 975
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a31" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1006
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a32" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1037
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a33" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1068
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a34" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1099
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a35" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1130
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a36" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1161
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a37" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1192
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a38" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1223
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a39" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1254
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a40" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1285
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a41" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1316
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a42" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1347
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a43" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1378
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a44" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1409
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a45" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1440
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a46" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1471
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a47" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1502
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a48" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1533
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a49" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1564
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a50" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1595
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a51" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1626
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a52" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1657
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a53" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1688
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a54" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1719
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a55" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1750
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a56" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1781
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a57" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1812
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a58" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1843
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a59" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1874
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a60" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1905
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a61" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1936
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a62" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1967
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a63" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 1998
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a64" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2029
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a65" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2060
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a66" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2091
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a67" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2122
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a68" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2153
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a69" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2184
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a70" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2215
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a71" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2246
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a72" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2277
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a73" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2308
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a74" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2339
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a75" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2370
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a76" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2401
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a77" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2432
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a78" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2463
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a79" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2494
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a80" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2525
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a81" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2556
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a82" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2587
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a83" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2618
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a84" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2649
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a85" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2680
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a86" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2711
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a87" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2742
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a88" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2773
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a89" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2804
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a90" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2835
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a91" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2866
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a92" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2897
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a93" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2928
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a94" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2959
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a95" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 2990
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a96" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3021
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a97" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3052
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a98" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3083
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a99" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3114
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a100" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3145
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a101" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3176
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a102" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3207
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a103" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3238
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a104" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3269
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a105" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3300
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a106" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3331
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a107" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3362
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a108" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3393
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a109" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3424
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a110" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3455
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a111" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3486
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a112" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3517
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a113" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3548
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a114" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3579
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a115" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3610
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a116" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3641
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a117" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3672
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a118" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3703
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a119" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3734
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a120" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3765
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a121" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3796
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a122" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3827
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a123" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3858
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a124" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3889
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a125" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3920
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a126" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3951
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a127" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 3982
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a128" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4013
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a129" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4044
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a130" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4075
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a131" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4106
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a132" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4137
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a133" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4168
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a134" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4199
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a135" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4230
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a136" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4261
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a137" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4292
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a138" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4323
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a139" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4354
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a140" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4385
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a141" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4416
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a142" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4447
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a143" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4478
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a144" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4509
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a145" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4540
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a146" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4571
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a147" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4602
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a148" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4633
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a149" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4664
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a150" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4695
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a151" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4726
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a152" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4757
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a153" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4788
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a154" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4819
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a155" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4850
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a156" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4881
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a157" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4912
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a158" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4943
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a159" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 4974
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a160" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5005
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a161" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5036
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a162" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5067
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a163" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5098
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a164" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5129
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a165" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5160
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a166" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5191
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a167" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5222
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a168" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5253
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a169" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5284
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a170" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5315
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a171" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5346
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a172" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5377
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a173" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5408
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a174" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5439
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a175" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5470
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a176" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5501
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a177" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5532
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a178" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5563
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a179" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5594
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a180" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5625
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a181" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5656
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a182" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5687
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a183" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5718
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a184" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5749
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a185" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5780
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a186" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5811
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a187" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5842
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a188" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5873
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a189" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5904
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a190" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5935
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a191" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5966
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a192" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 5997
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a193" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6028
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a194" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6059
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a195" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6090
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a196" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6121
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a197" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6152
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a198" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6183
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a199" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6214
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a200" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6245
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a201" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6276
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a202" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6307
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a203" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6338
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a204" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6369
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a205" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6400
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a206" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6431
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a207" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6462
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a208" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6493
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a209" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6524
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a210" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6555
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a211" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6586
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a212" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6617
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a213" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6648
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a214" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6679
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a215" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6710
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a216" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6741
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a217" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6772
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a218" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6803
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a219" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6834
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a220" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6865
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a221" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6896
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a222" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6927
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a223" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6958
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a224" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 6989
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a225" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7020
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a226" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7051
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a227" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7082
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a228" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7113
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a229" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7144
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a230" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7175
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a231" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7206
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a232" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7237
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a233" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7268
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a234" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7299
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a235" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7330
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a236" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7361
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a237" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7392
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a238" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7423
+        Warning (14320): Synthesized away node "filter:f0|ram_2_port:my_fram|altsyncram:altsyncram_component|altsyncram_jon1:auto_generated|ram_block1a239" File: C:/Users/HADK2100/Downloads/Q3_template/db/altsyncram_jon1.tdf Line: 7454
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 13
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/HADK2100/Downloads/Q3_template/output_files/Q3.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 21 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 6
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 6
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 6
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 6
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[10]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[11]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[12]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[13]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[14]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[15]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[16]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/HADK2100/Downloads/Q3_template/Q3.v Line: 7
+Info (21057): Implemented 393 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 24 input pins
+    Info (21059): Implemented 29 output pins
+    Info (21061): Implemented 235 logic cells
+    Info (21064): Implemented 104 RAM segments
+    Info (21065): Implemented 1 PLLs
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 283 warnings
+    Info: Peak virtual memory: 4815 megabytes
+    Info: Processing ended: Thu Oct 06 23:46:40 2022
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:23
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/HADK2100/Downloads/Q3_template/output_files/Q3.map.smsg.
+
+

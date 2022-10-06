@@ -1,0 +1,39 @@
+module filter(input clk, reset, input [23:0] data_in,
+              output [23:0] out);
+
+integer kernel[8:0]; // e.g. Sharpen:
+initial
+begin
+	kernel[0] = 0; kernel[1] = -1; kernel[2] = 0;
+	kernel[3] = -1; kernel[4] = 5; kernel[5] = -1;
+	kernel[6] = 0; kernel[7] = -1; kernel[8] = 0;
+end
+
+/*
+ *    ==== YOUR FILTER CODE HERE ====
+ */
+
+assign out = {data_in[23:16], data_in[15:8], data_in[7:0]}; // Replace this to output the desired filtered 24-bit RGB bit vector.
+
+
+endmodule
+
+
+/*
+ * Kernels (For Q3 d).) See https://en.wikipedia.org/wiki/Kernel_(image_processing) 
+ *  
+ * Sharpen:
+ * | 0 -1  0|
+ * |-1  5 -1|
+ * | 0 -1  0|
+ *
+ * Gaussian Blur:
+ *  1   |1  2  1|
+ *  —   |2  4  2|
+ *  16  |1  2  1|
+ *
+ * Ridge Detection:
+ * |-1 -1 -1|
+ * |-1  8 -1|
+ * |-1 -1 -1|
+ */
